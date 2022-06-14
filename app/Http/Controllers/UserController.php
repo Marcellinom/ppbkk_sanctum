@@ -67,7 +67,7 @@ class UserController extends Controller
             if ($user instanceof User) {
                 $user->tokens()->delete();
             } else {
-                dd("damn");
+                throw new ExpectedException("error parsing user on server", 1005);
             }
         } catch (Throwable $exception) {
             DB::rollBack();
